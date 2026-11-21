@@ -7,7 +7,9 @@ caps) and a pure-stdlib PNG encoder. No network, no randomness, no clock:
 two runs write byte-identical files.
 
 Headlines below were collected from reports published on 20 Nov 2026
-(Reuters, BBC, AP, The Guardian, MarketWatch, Space, and wire digests).
+(One Turn day digest, Just Security Early Edition, Reuters wires,
+Cricinfo and sport wires). Every item was checked against a 20 Nov
+report; stale items from the first draft were dropped (see content).
 """
 
 import os
@@ -219,111 +221,160 @@ class Canvas:
 
 
 # ---------------------------------------------------------------- content
-# (kicker, headline, summary) - every item verified in reports published
-# on 20 November 2026 (see module docstring).
-LEAD = ("TOP STORY - WASHINGTON",
-        "TRUMP: NO RUSH ON IRAN",
-        "DECISION AFTER JANUARY 1",
-        "President says he will \"see what happens\" in the new year; "
-        "the Senate rejects a bid to block a strike on Iran.")
+# (kicker, headline, detail) - every item verified in reports published
+# on 20 November 2026: the One Turn day digest for 2026-11-20 (52 stories,
+# sourced from BBC, Reuters, The Guardian, France 24, Al Jazeera and others),
+# Just Security Early Edition 20 Nov 2026, Reuters wires dated Nov 20
+# (SpaceX GPU financing, CDC measles count, Monterey quake, Taiwan/Meta),
+# and 20 Nov sport reports (Cricinfo, Nation Press, Flashscore, TSN).
+# Dropped as stale after checking: CMA Awards (18 Nov), WBBL final
+# (19 Nov evening), SA v Bangladesh Test (ended 19 Nov), Cyclone Akvan
+# and Hayabusa2 (no 20 Nov report found).
+LEAD = ("TOP STORY - THE HAGUE",
+        "WORLD COURT: MYANMAR GUILTY",
+        "OF GENOCIDE",
+        "The Hague rules 9 to 6 that Myanmar committed genocide against "
+        "the Rohingya in 2017; the first such finding against a state.")
 
 WORLD = [
-    ("THE HAGUE",
-     "COURT: MYANMAR COMMITTED GENOCIDE",
-     "First state ever found guilty of genocide."),
-    ("KYIV",
-     "RUSSIAN STRIKES HIT KYIV EMBASSIES",
-     "Austrian and Dutch missions damaged overnight."),
-    ("BRUSSELS",
-     "EUROPE READY FOR TALKS WITH RUSSIA",
-     "Leaders say they are open to talks to end the war."),
     ("SHENZHEN",
-     "TRUMP, XI, PUTIN ISSUE PEACE PLEDGE",
-     "Historic summit ends with a pledge on nuclear risk."),
+     "TRUMP, XI AND PUTIN SIGN PEACE PLEDGE",
+     "Four-point declaration on nuclear risk; Ukraine unmentioned."),
+    ("KYIV",
+     "RUSSIAN STRIKES KILL 8 IN KYIV",
+     "Bridges hit overnight; Austrian and Dutch embassies damaged."),
+    ("BERLIN",
+     "EUROPE READY FOR TALKS WITH RUSSIA",
+     "Allies set united line; Kushner floats NATO-style guarantee."),
+    ("KERCH",
+     "UKRAINE HITS CRIMEA BRIDGE AGAIN",
+     "Third strike in four days halts rail; Putin vows response."),
     ("RIYADH",
-     "HOUTHIS STRIKE AT RIYADH TOWER",
-     "Saudi wealth fund tower damaged in a Houthi attack."),
-    ("ODISHA, INDIA",
-     "CYCLONE AKVAN: 300,000 EVACUATED",
-     "Storm nears Odisha; 423 rescue teams deployed."),
-    ("SUVA",
-     "FIJI DECLARES DROUGHT DISASTER",
-     "El Nino dries up water supplies across the islands."),
-    ("SEOUL",
-     "COURT CLEARS EX-PM HAN DUCK-SOO",
-     "Court overturns conviction tied to 2024 martial law."),
-    ("VIENNA",
-     "NORTH KOREA EXPANDS ENRICHMENT",
-     "UN watchdog: Pyongyang enlarging its Yongbyon plant."),
+     "HOUTHI MISSILE HITS RIYADH TOWER",
+     "Saudi wealth fund tower damaged; no injuries reported."),
+    ("HORMUZ",
+     "TANKER CATCHES FIRE AFTER MINE HIT",
+     "Iran war enters ninth month; US war cost put at $48.3bn."),
+    ("GAZA",
+     "ISRAEL CROSSES GAZA YELLOW LINE",
+     "First incursion since truce; Hamas calls it a violation."),
+    ("WARSAW",
+     "RUSSIA VIOLATES POLISH AIRSPACE",
+     "Three objects cross border: two missiles and a drone."),
+    ("BAGHDAD",
+     "IRAQ MOVES ON IRAN-BACKED MILITIA",
+     "Forces deploy in Kataib Hezbollah stronghold."),
+    ("WASHINGTON",
+     "SENATE BLOCKS BID TO CURB IRAN WAR",
+     "War-powers measure fails 51-48; Trump waits until new year."),
+    ("BRUSSELS",
+     "UK AND EU AGREE YOUTH MOBILITY DEAL",
+     "Second summit seals travel pact; food trade also on table."),
+    ("TALLINN",
+     "ESTONIA TO SHUT RUSSIA BORDER",
+     "Six-month closure; Moscow warns of a new Iron Curtain."),
+    ("SAN SALVADOR",
+     "BUKELE REGISTERS FOR THIRD TERM",
+     "Six-year bid after 2025 change scrapped term limits."),
     ("CARACAS",
-     "US, VENEZUELA RESTORE MILITARY TIES",
-     "Defence deal signed after months of tension."),
+     "US AND VENEZUELA SIGN MILITARY DEAL",
+     "Hegseth signs pact months after Maduro was removed."),
+    ("ULAANBAATAR",
+     "MONGOLIAN PRESIDENT RESIGNS",
+     "Parliament accepts exit; speaker acts until election."),
+    ("PORT-AU-PRINCE",
+     "HAITI KILLS 34 IN GANG RAID",
+     "Forces retake Martissant corridor held since 2021."),
 ]
 
 MARKETS = [
     ("NEW YORK",
-     "ANTHROPIC DEBUTS AT $1.3 TRILLION",
-     "AI firm closes day one near $97; biggest IPO ever."),
+     "ANTHROPIC UP 17% IN $81BN DEBUT",
+     "Shares close near $97; record IPO values firm near $1.5tn."),
     ("NEW YORK",
-     "NVIDIA LOSES $669BN IN SIX DAYS",
-     "Chip giant's slide deepens as AI stocks give up gains."),
+     "STOCKS FALL FOR FIFTH STRAIGHT DAY",
+     "SP 500 down 2%; Nikkei sinks 4.8% as AI rally unwinds."),
+    ("SANTA CLARA",
+     "CALIFORNIA PROBES NVIDIA",
+     "AG subpoenas chipmaker; Huang quit over spy affair."),
     ("NEW YORK",
-     "STOCKS FACE WORST WEEK SINCE APRIL",
-     "US indexes slide as recession trades emerge."),
-    ("TOKYO",
-     "BANK OF JAPAN SIGNALS MORE HIKES",
-     "Ueda: rates will keep rising; 1.50% expected in Dec."),
+     "GOLD FALLS 4.2% IN A MONTH OF LOSSES",
+     "Bullion down 11% in a month; 10-year yield tops 5%."),
     ("TOKYO",
      "JAPAN INFLATION HITS YEAR HIGH",
-     "Core prices jump as energy subsidies expire."),
+     "Core prices jump as subsidies end; BOJ hike on track."),
+    ("BRASILIA",
+     "BRAZIL SELLS $1BN TO DEFEND REAL",
+     "Currency down 18% in a month; dollar nears 5.93 reais."),
     ("WASHINGTON",
-     "FED MINUTES FLAG HIKE RISK",
-     "J.P. Morgan sees hikes at the next three meetings."),
+     "SENATE PASSES ENERGY PERMIT BILL",
+     "Overhaul clears 62-33 to speed power plants and data centres."),
     ("WASHINGTON",
-     "NVIDIA FACES CHIP PROBE",
-     "California AG subpoenas Nvidia over chip diversion."),
+     "WHITE HOUSE FIRES CYBER CHIEF",
+     "Cairncross out after outages hit air travel and email."),
     ("WASHINGTON",
-     "879,000 AI CHIPS CLEARED FOR CHINA",
-     "Commerce approved sales to Chinese firms in 6 months."),
-    ("GENEVA",
-     "IMF WARNS ON 4.7% INFLATION",
-     "Georgieva: many economies must keep policy tight."),
+     "SPACEX LANDS $44BN GPU FINANCING",
+     "Apollo and Goldman fund chips in largest GPU deal yet."),
+    ("WASHINGTON",
+     "IMF: DEBT NEARS 100% OF GDP",
+     "Georgieva warns burden highest since Second World War."),
+    ("MRIMA HILL",
+     "US WINS KENYA MINERALS DEAL",
+     "Frontier Minerals beats China rivals for $60bn site."),
+    ("TAIPEI",
+     "TAIWAN WARNS META ON CHINA ACCOUNTS",
+     "Thousands of linked accounts said to target elections."),
 ]
 
 SCIENCE = [
     ("SPACE",
      "VOYAGER 1 PASSES ONE LIGHT-DAY",
-     "NASA: probe now more than a light-day from Earth."),
-    ("TOKYO",
-     "HAYABUSA2 DROPS ASTEROID LANDING",
-     "Engine trouble forces Japan's probe to change plans."),
-    ("LOS ANGELES",
-     "GTA 6 SALES PASS $1.8BN ODYSSEY",
-     "Rockstar hit overtakes the film's global run."),
+     "Probe 26bn km out, 49 years on; still sending data."),
+    ("MERCURY",
+     "BEPICOLOMBO ENTERS MERCURY ORBIT",
+     "Second mission ever to orbit innermost planet."),
     ("ANTALYA",
-     "COP31 NEARS END, 21 ISSUES OPEN",
-     "Climate talks enter final two days with disputes open."),
-    ("NEW YORK",
+     "COP31 DRAFT DROPS FOSSIL PHASE-OUT",
+     "Slimmed deal drops net-zero dates on final day."),
+    ("SUVA",
+     "FIJI AND TONGA DECLARE DISASTER",
+     "El Nino drought at crisis level; Cyclone Xavier nears."),
+    ("LOS ANGELES",
+     "EL NINO STORM THREATENS LA",
+     "Flood and mudslide warnings; beaches vanish."),
+    ("NAIROBI",
+     "KENYA CLEARS LAST EBOLA PATIENT",
+     "Outbreak contained 37 days after first case."),
+    ("EDINBURGH",
+     "GTA 6 TOPS $2.3BN IN SALES",
+     "Biggest entertainment launch ever after 13-year wait."),
+    ("WASHINGTON",
      "TRUMP PARDONS PETE ROSE",
-     "Baseball's banned hits king pardoned posthumously."),
+     "Posthumous pardon for banned hits king over tax case."),
+    ("SEOUL",
+     "HAN DUCK-SOO FACES RETRIAL",
+     "Court orders new trial in martial-law case."),
+    ("COPENHAGEN",
+     "DENMARK RATIFIES GREENLAND DEAL",
+     "Unanimous vote eases Arctic row after takeover talk."),
+    ("CALIFORNIA",
+     "M5.1 QUAKE HITS MONTEREY COUNTY",
+     "USGS reports tremor near central California coast."),
 ]
 
 SPORT = [
     ("WELLINGTON",
-     "NICHOLLS 113* SAVES NEW ZEALAND",
-     "Hosts reach 273 for 5 on day one of the first Test."),
-    ("JOHANNESBURG",
-     "SOUTH AFRICA TOP WORLD TEST TABLE",
-     "Proteas beat Bangladesh; Harmer takes 6 for 51."),
-    ("RAWALPINDI",
-     "SRI LANKA LEAD PAKISTAN BY 82",
-     "Visitors 309 for 9 at stumps on day three."),
+     "NICHOLLS 175 AS NZ MAKE 368",
+     "Rescue ton lifts hosts; Phillips hits 118 against India."),
     ("SYDNEY",
-     "THUNDER BEAT HEAT IN SIX-WICKET WIN",
-     "Harris and Learoyd star in a Big Bash thriller."),
-    ("LONDON",
-     "GILL IN DRS ROW WITH UMPIRE",
-     "India captain argues a review call on day one."),
+     "JEPCHIRCHIR BANNED FOR DOPING",
+     "Marathon champion stripped of Sydney title for three years."),
+    ("LOS ANGELES",
+     "RAMS STAR NACUA OUT FOR MONTHS",
+     "Receiver has MCL surgery; coach fears long absence."),
+    ("SAN ANTONIO",
+     "WEMBANYAMA 32 LIFTS SPURS PAST CLIPPERS",
+     "Spurs win 124-112; Knicks edge Timberwolves 102-99."),
 ]
 
 SECTIONS = [
@@ -353,16 +404,32 @@ def draw_section_header(cv, x, y, w, title, color):
 
 
 def draw_item(cv, x, y, w, kicker, headline, summary, color):
-    """One story block; returns y just below it."""
-    cv.draw_text(x, y, kicker, 1.15, color, 2)
-    y += 11
-    for line in cv.wrap(headline, 2.0, w):
-        cv.draw_text(x, y, line, 2.0, INK, 2)
-        y += 15
-    for line in cv.wrap(summary, 1.35, w):
-        cv.draw_text(x, y, line, 1.35, (74, 70, 62), 2)
-        y += 11
-    return y + 3
+    """One story block: kicker inline before the headline, one detail line.
+    Returns y just below it. Headline must wrap to at most 2 lines."""
+    kw = cv.draw_text(x, y, kicker + " - ", 1.05, color, 2)
+    # greedy wrap with a narrower first line (kicker already drawn on it)
+    words = sanitize(headline).split(" ")
+    lines, cur, first = [], "", True
+    for wd in words:
+        trial = wd if not cur else cur + " " + wd
+        avail = w - kw if first else w
+        if cv.text_width(trial, 1.7) <= avail or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur, first = wd, False
+    if cur:
+        lines.append(cur)
+    if len(lines) > 2:
+        raise ValueError("headline wraps to %d lines: %r" % (len(lines), headline))
+    for i, line in enumerate(lines):
+        lx = x + kw if i == 0 else x
+        cv.draw_text(lx, y, line, 1.7, INK, 2)
+        y += 13
+    for line in cv.wrap(summary, 1.2, w):
+        cv.draw_text(x, y, line, 1.2, (74, 70, 62), 2)
+        y += 10
+    return y + 2
 
 
 def build():
@@ -415,6 +482,9 @@ def build():
                 cv.hline(x, x + col_w, yy - 2, 1, LIGHT)
         col_end[x] = yy
     y = max(col_end.values())
+    if y > 980:
+        raise ValueError("columns overflow: left=%d right=%d" % (
+            col_end[mx], col_end[right_x]))
 
     # ---- footer ----
     cv.hline(mx, W - mx, 986, 2, NAVY)
