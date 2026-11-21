@@ -5,7 +5,7 @@ and fully deterministic: no network, no clock, no randomness, no external
 font files. Text is drawn with a small built-in 5x7 bitmap font and the
 PNG is encoded by hand with zlib.
 
-Reads OUTPUT_DIR (default /output) and writes front-page.png, 1024x1024.
+Reads OUTPUT_DIR (default /output) and writes entry.png, 1024x1024.
 """
 
 import os
@@ -390,7 +390,7 @@ def main():
     out_dir = os.environ.get("OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     canvas, left_end, right_end = render()
-    path = os.path.join(out_dir, "front-page.png")
+    path = os.path.join(out_dir, "entry.png")
     write_png(path, canvas)
     print("stories: %d" % len(STORIES))
     print("size: %dx%d" % (WIDTH, HEIGHT))
